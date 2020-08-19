@@ -1,0 +1,65 @@
+[System]
+Output filename=C:\Users\s182997\Documents\lgess.txt
+Matrix filename=Survival Session-1 Matrix-6
+Database name=Incidence - SEER 18 Regs Custom Data (with additional treatment fields), Nov 2018 Sub (2000-2016) <Katrina/Rita Population Adjustment> - Linked To County Attributes - Total U.S., 1969-2017 Counties
+
+[Session Options]
+Type=Survival
+
+[Export Options]
+GZipped=false
+Variable format=labels
+File format=DOS/Windows
+Field delimiter=tab
+Missing character=space
+Fields with delimiter in quotes=true
+Remove thousands separators=false
+Variable names included=false
+Column Variables as Stats=false
+
+[Variables]
+Var1Name=Age recode with <1 year olds
+Var1DisplayType=Formatted
+Var2Name=Race and origin recode (NHW, NHB, NHAIAN, NHAPI, Hispanic)
+Var2DisplayType=Formatted
+Var3Name=Histologic Type ICD-O-3
+Var3DisplayType=Formatted
+Var4Name=Grade
+Var4DisplayType=Formatted
+Var5Name=SEER Combined Summary Stage 2000 (2004+)
+Var5DisplayType=Formatted
+Var6Name=RX Summ--Surg Prim Site (1998+)
+Var6DisplayType=Formatted
+Var7Name=Chemotherapy recode (yes, no/unk)
+Var7DisplayType=Formatted
+Var8Name=Radiation recode
+Var8DisplayType=Formatted
+Var9Name=SEER cause-specific death classification
+Var9DisplayType=Formatted
+Var10Name=Survival months
+Var10DisplayType=Formatted
+Var11Name=Age at diagnosis
+Var11DisplayType=Formatted
+Var12Name=Sex
+Var12DisplayType=Formatted
+Var13Name=State
+Var13DisplayType=Formatted
+Var14Name=County
+Var14DisplayType=Formatted
+Var15Name=Vital status recode (study cutoff used)
+Var15DisplayType=Formatted
+Var16Name=Month of diagnosis recode
+Var16DisplayType=Formatted
+Var17Name=Year of diagnosis
+Var17DisplayType=Formatted
+Var18Name=Month of follow-up recode
+Var18DisplayType=Formatted
+Var19Name=Year of follow-up recode
+Var19DisplayType=Formatted
+Var20Name=End Calc Vital Status (Adjusted)
+Var20DisplayType=Formatted
+Var21Name=Begin Calc Age (Adjusted)
+Var21DisplayType=Unformatted
+Var22Name=Number of Intervals (Calculated)
+Var22DisplayType=Unformatted
+
