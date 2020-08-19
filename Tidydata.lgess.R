@@ -53,3 +53,25 @@ lgess.tib$FollowDate <- as.yearmon(lgess.tib$FollowDate, format = "%Y-%B")
 
 #Change COD variable to Alive(0) or Dead(1)
 lgess.tib$COD <- ifelse(lgess.tib$COD == "Alive or dead of other cause", 0, 1)
+
+#Filter out disease confined to uterus and low-grade
+local.lgess <- filter(lgess.tib, SEER.stage == "Localized only")
+
+#Add row for age <50 or >= 50
+local.lgess <- mutate(local.lgess, Age2 = ifelse(DiagAge < 50, "<50", ">=50"))
+
+#Create KM survival fit line using library(survival) and library(survminer)
+
+library(survival)
+
+library(survminer)
+
+##fit <- survfit(Surv(time = [time variable], event = [censoring variable]) ~ [stratification variable], data = [dataset])
+##ggsurvplot(fit, data = [dataset]) ##Lots of attributes available for custom plots##
+
+#Fit equation for LGESS stratified by Age Group
+fit1 <- survfit(Surv(time = local.lgess$SurvMonths, event = local.lgess$COD) ~ local.lgess$Age2, data = local.lgess)
+
+#Survival curve for LGESS stratified by Age Group
+ggsurvplot(fit1, data = local.lgess, pval = TRUE, xlab = "Months", break.time.by = 12, title = "Survival localized LGESS ~ Age Group", legend = "bottom", legend.title = "Age Group")
+
